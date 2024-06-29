@@ -26,11 +26,10 @@ export const postData = async (path, body) => {
       },
       body: JSON.stringify(body),
     });
-
+    console.log(response);
     const responseData = await response.json();
 
-    console.log(responseData.status);
-    return { data: responseData };
+    return { data: responseData, status: response.status };
   } catch (error) {
     return { data: error.response?.data, status: error.response?.status };
   }
