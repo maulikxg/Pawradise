@@ -17,15 +17,19 @@ export const getData = async (path) => {
 
 export const postData = async (path, body) => {
   try {
-    const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/${path}`,
-      body,
-      {
-        withCredentials: true,
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${path}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'withCredentials': true,
+      },
+      body: JSON.stringify(body),
+    });
+    console.log(response);
+    const responseData = await response.json();
 
-    return { data: response.data, status: response.status };
+    return { data: responseData, status: response.status };
   } catch (error) {
     return { data: error.response?.data, status: error.response?.status };
   }
