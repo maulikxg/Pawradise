@@ -58,9 +58,6 @@ export default function Footer() {
               <Link to="/verify/Contact" className="supportLinks">
                 Contact Us
               </Link>
-              <Link to="/verify/AboutCreators" className="supportLinks">
-                Creators
-              </Link>
             </div>
             <div>
               <Link className="supportLinks" to="/Explore">
