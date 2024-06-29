@@ -10,22 +10,24 @@ import { postData } from "../utils/api";
 import { calculateAge } from "../utils/common";
 
 const Profile = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [dob, setDob] = useState("");
-  const [breed, setBreed] = useState("");
-  const [gender, setGender] = useState("");
-  const [image, setImage] = useState("");
-  const [bio, setBio] = useState("");
-  const [address, setAddress] = useState("");
-  const [openEditProfile, setOpenEditProfile] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  const [ name, setName ] = useState("");
+  const [ age, setAge ] = useState("");
+  const [ dob, setDob ] = useState("");
+  const [ breed, setBreed ] = useState("");
+  const [ gender, setGender ] = useState("");
+  const [ image, setImage ] = useState("");
+  const [ bio, setBio ] = useState("");
+  const [ address, setAddress ] = useState("");
+  const [ openEditProfile, setOpenEditProfile ] = useState(false);
+  const [ refresh, setRefresh ] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("HERE ");
         const response = await postData("userdata");
+
         let data = response.data;
         if (response.status === 401) {
           toast.error("Kindly login first!");
@@ -60,7 +62,7 @@ const Profile = () => {
       }
     };
     fetchData();
-  }, [refresh]);
+  }, [ refresh ]);
 
   return (
     <>
