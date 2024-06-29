@@ -67,7 +67,7 @@ const Navbar = () => {
     bar[1].classList.remove("barTwo");
     bar[2].classList.remove("barThree");
     ham[0].classList.remove("navbarLinksMenuShow");
-  }
+  };
 
   const logout = async () => {
     try {
@@ -94,7 +94,11 @@ const Navbar = () => {
           <img src={Logo} alt="Website logo" loading="lazy" />
         </Link>
         <div className="navbarLinksMenu">
-          <Link to="/Profile" className="navbarLinksProfile" onClick={closeMenu}>
+          <Link
+            to="/Profile"
+            className="navbarLinksProfile"
+            onClick={closeMenu}
+          >
             <CgProfile className="reactIcon" />
             &nbsp;Profile
           </Link>
@@ -133,7 +137,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbarWiggles">
-        <h1>Wiggles</h1>
+        <h1>Pawradise</h1>
       </div>
       {loading ? (
         <NavbarSkeleton />
