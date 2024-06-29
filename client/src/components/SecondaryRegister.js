@@ -28,8 +28,9 @@ const SecondaryRegister = ({
   setBio,
   setShowPrimary,
 }) => {
-  const [characterCount, setCharacterCount] = useState(0);
-  const currentDate = new Date().toISOString().split("T")[0];
+  console.log("SecondaryRegister", email, phone, password);
+  const [ characterCount, setCharacterCount ] = useState(0);
+  const currentDate = new Date().toISOString().split("T")[ 0 ];
   const navigate = useNavigate();
 
   const breedOptions = [
@@ -83,7 +84,7 @@ const SecondaryRegister = ({
   };
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
+    const file = event.target.files[ 0 ];
     setImage(file); // Store the selected image file in the state
   };
 
@@ -138,8 +139,12 @@ const SecondaryRegister = ({
       formData.append("image", image); // Append the image file to the FormData
       formData.append("bio", bio);
 
-      const response = await postData("register", formData);
-
+      // convert formData to JSON
+      const body = {};
+      formData.forEach((value, property) => (body[ property ] = value));
+      console.log(body);
+      const response = await postData("register", body);
+      console.log(response);
       if (response.status === 200) {
         toast.success("Registration Successful!");
         navigate("/profile");

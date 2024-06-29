@@ -66,31 +66,36 @@ module.exports.Register = async (req, res, next) => {
     return res.json({ status: "fail", message: "User already exists!" });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  try {
+    console.log(password);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new UserModel({ phone, email, password: hashedPassword });
+    await newUser.save();
 
-  const newUser = new UserModel({ phone, email, password: hashedPassword });
-  await newUser.save();
+    const foundUser = await UserModel.findOne({ email: email });
+    const token = jwt.sign(
+      {
+        id: foundUser._id,
+      },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: 3 * 24 * 60 * 60,
+      }
+    );
+    res.cookie("token", token, {
+      maxAge: 1000 * 60 * 60 * 24 * 3,
+      withCredentials: true,
+      httpOnly: false,
+      secure: true,
+      sameSite: "none",
+    });
 
-  const foundUser = await UserModel.findOne({ email: email });
+    req.id = foundUser._id;
+  } catch (error) {
+    console.error("Error during registration:", error);
+    return res.status(500).json({ status: "error", message: "Internal server error" });
+  }
 
-  const token = jwt.sign(
-    {
-      id: foundUser._id,
-    },
-    process.env.JWT_SECRET_KEY,
-    {
-      expiresIn: 3 * 24 * 60 * 60,
-    }
-  );
-  res.cookie("token", token, {
-    maxAge: 1000 * 60 * 60 * 24 * 3,
-    withCredentials: true,
-    httpOnly: false,
-    secure: true,
-    sameSite: "none",
-  });
-
-  req.id = foundUser._id;
 
   next();
 };

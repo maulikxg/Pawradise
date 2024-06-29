@@ -20,7 +20,11 @@ const Register = ({
   setPassword,
   setShowPrimary,
 }) => {
-  const [isRevealPwd, setIsRevealPwd] = useState(false);
+
+  console.log(email, phone, password);
+
+
+  const [ isRevealPwd, setIsRevealPwd ] = useState(false);
   const handleClick = () => setIsRevealPwd(!isRevealPwd);
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +41,7 @@ const Register = ({
 
     if (
       !password.match(
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,20}$/
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}[\]:;<>,.?~\\/-]{8,20}$/
       )
     ) {
       toast.error(
