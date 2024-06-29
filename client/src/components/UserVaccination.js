@@ -24,7 +24,7 @@ const Vaccination = () => {
         const response = await postData("userdata", {
           userID: id,
         });
-        if (response.status != 200) {
+        if (response.status !== 200) {
           toast.error("Please refresh");
           return;
         }
@@ -54,7 +54,7 @@ const Vaccination = () => {
         <div className="headerContainer">
           <div className="logoInfoContainer">
             <img src={Logo} alt="website logo" loading="lazy"></img>
-            <h3>Wiggles</h3>
+            <h3>Pawradise</h3>
           </div>
           <h1>PET HEALTH RECORD</h1>
         </div>

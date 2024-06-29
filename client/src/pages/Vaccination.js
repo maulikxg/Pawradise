@@ -35,7 +35,7 @@ const Vaccination = () => {
   const [addVaccination, setAddVaccination] = useState(false);
   const [editbtn, setEditbtn] = useState("Edit");
   const [editIcon, setEditIcon] = useState(false);
-  
+
   document.addEventListener("click", () => setAddVaccination(false));
 
   useEffect(() => {
@@ -182,7 +182,7 @@ const Vaccination = () => {
       <div className="headerContainer">
         <div className="logoInfoContainer">
           <img src={Logo} alt="Website logo" loading="lazy"></img>
-          <h3>Wiggles</h3>
+          <h3>Pawradise</h3>
         </div>
         <h1>PET HEALTH RECORD</h1>
       </div>

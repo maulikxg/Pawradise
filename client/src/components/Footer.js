@@ -28,16 +28,16 @@ export default function Footer() {
       </div>
       <div className="footer">
         <div className="aboutWiggles">
-          <h3 className="footerHeading">About Wiggles</h3>
+          <h3 className="footerHeading">About Pawradise</h3>
           <p>
-            Wiggles is a platform where pet owners can effortlessly arrange
+            Pawradise is a platform where pet owners can effortlessly arrange
             playdates for their furry friends, share pet-care insights, and
             forge lasting connections. Wiggles isn't just a social space; it's a
             vibrant community where pets take center stage. 🐾 <br />
             But we're more than just a platform; we're an open-source project.
-            This means our community shapes Wiggles, ensuring it evolves with
-            your needs. At Wiggles, every wag, chirp, or meow deserves to find
-            its kindred spirit.
+            This means our community shapes Pawradise , ensuring it evolves with
+            your needs. At Pawradise , every wag, chirp, or meow deserves to
+            find its kindred spirit.
           </p>
         </div>
         <div className="supportWiggles">
@@ -74,16 +74,14 @@ export default function Footer() {
           <div className="footerSocialLinksContainer">
             <a
               className="footerSocialLinks"
-              href="https://github.com/DevanshSahni/Wiggles"
+              href="https://github.com/maulikxg/Pawradise"
             >
               <AiFillGithub />
             </a>
           </div>
         </div>
       </div>
-      <div className="copyrightBar">
-        Copyright © 2023 - Wiggles - All rights reserved
-      </div>
+      <div className="copyrightBar"></div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ function Base() {
           alt="website-logo"
           loading="lazy"
         ></img>
-        <h2 className="logoHeading">Wiggles</h2>
+        <h2 className="logoHeading">Pawradise</h2>
       </div>
     </a>
   );
