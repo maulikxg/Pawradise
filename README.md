@@ -5,4 +5,8 @@ Pawradise is a comprehensive Pet Boarding Management System developed by us. Thi
 # Demo
 https://github.com/maulikxg/Pawradise/assets/105512770/3d66aba4-b943-4807-b241-33b63c572d08
 
+## Tech Stack
 
+**Client:** React,TailwindCSS
+
+**Server:** Node, Express
